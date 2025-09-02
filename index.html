@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Prediction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>🎓 Student Performance Prediction</h1>
+
+    <div class="metrics">
+        <p><strong>Model Metrics:</strong></p>
+        <ul>
+            <li>📊 Accuracy: <span class="metric">{{ accuracy|round(2) }}</span></li>
+            <li>🎯 Precision: <span class="metric">{{ precision|round(2) }}</span></li>
+            <li>🔁 Recall: <span class="metric">{{ recall|round(2) }}</span></li>
+            <li>📐 F1-Score: <span class="metric">{{ f1|round(2) }}</span></li>
+        </ul>
+    </div>
+
+    <form id="prediction-form">
+        <label for="gender">Gender:</label>
+        <select id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="study_hours">Study Hours per Week:</label>
+        <input type="number" id="study_hours" required>
+
+        <label for="attendance">Attendance Rate (%):</label>
+        <input type="number" id="attendance" required>
+
+        <label for="past_exam_scores">Past Exam Scores:</label>
+        <input type="number" id="past_exam_scores" required>
+
+        <label for="parental_education">Parental Education Level:</label>
+        <select id="parental_education">
+            <option value="High School">High School</option>
+            <option value="Bachelors">Bachelors</option>
+            <option value="Masters">Masters</option>
+            <option value="PhD">PhD</option>
+        </select>
+
+        <label for="internet_access">Internet Access at Home:</label>
+        <select id="internet_access">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="extracurricular">Extracurricular Activities:</label>
+        <select id="extracurricular">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <button type="submit">🎯 Predict</button>
+    </form>
+
+    <div class="prediction-box">
+        <h2>📢 Prediction: <span id="result"></span></h2>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
